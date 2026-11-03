@@ -1,0 +1,1505 @@
+/* Study-abroad screens (lib/features/nexted) for the web. Only the app's
+   tokens from globals.css - the same look as the IELTS AI website. */
+
+/* ── page top bar (TopBar) ────────────────────────────────────────────── */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.back,
+.iconBtn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  color: var(--text);
+  flex: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.back:hover,
+.iconBtn:hover {
+  background: var(--surface-alt);
+}
+.iconBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.topText {
+  flex: 1;
+  min-width: 0;
+}
+.h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.15;
+}
+.sub {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.kicker {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── layout ───────────────────────────────────────────────────────────── */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-width: 0;
+}
+.narrow {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rowTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+.end {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── text ─────────────────────────────────────────────────────────────── */
+.sectionHead {
+  margin: 6px 4px -4px;
+}
+.sectionTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.sectionSub {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.cardTitle {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.muted {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.soft {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+.note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+.fine {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+.center {
+  text-align: center;
+}
+
+/* ── info strip (AppCard on surfaceAlt) ───────────────────────────────── */
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 14px;
+  border-radius: 20px;
+  background: var(--surface-alt);
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text-soft);
+}
+.info :global(.icon) {
+  color: var(--text-muted);
+  flex: none;
+}
+.infoDanger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.infoDanger :global(.icon) {
+  color: var(--danger);
+}
+
+/* ── tags (Tag + tones) ───────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: none;
+  background: var(--surface-alt);
+  color: var(--text-soft);
+}
+.tone_success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.tone_danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.tone_accent {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+.tone_alert {
+  background: var(--accent-soft);
+  color: var(--warning);
+}
+
+/* ── progress (ProgressBar) ───────────────────────────────────────────── */
+.bar {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+  flex: 1;
+}
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--fill);
+}
+.thin {
+  height: 3px;
+}
+
+/* ── Home hero ────────────────────────────────────────────────────────── */
+.heroRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.heroText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.heroTitle {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--hero-text);
+}
+.heroSub {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--hero-muted);
+}
+.heroFoot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.heroMeter {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.heroMeterRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--hero-muted);
+}
+.heroMeterRow b {
+  color: var(--hero-text);
+  font-weight: 600;
+}
+.heroTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--hero-track);
+  overflow: hidden;
+}
+.heroFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--peach-gradient);
+}
+
+/* ── the journey timeline (Home) ──────────────────────────────────────── */
+.journey {
+  display: flex;
+  flex-direction: column;
+}
+.jStep {
+  display: flex;
+  gap: 14px;
+}
+.jRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  width: 30px;
+}
+.jDot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  flex: none;
+}
+.jDotDone {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+}
+.jDotActive {
+  border-color: var(--peach);
+  color: var(--text);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.jLine {
+  flex: 1;
+  width: 2px;
+  margin: 4px 0;
+  background: var(--border);
+  min-height: 18px;
+}
+.jLineDone {
+  background: var(--primary);
+  opacity: 0.4;
+}
+.jBody {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.jHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+}
+.jTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* A row inside a step (NextedRow): peach tile, title, one line, chevron. */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 14px;
+  border-radius: 22px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+:global([data-theme='night']) .item {
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.32);
+}
+.item:hover {
+  transform: translateY(-1px);
+  background: var(--surface);
+}
+.tile {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--peach);
+  color: var(--on-peach);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.itemText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.itemTitle {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.itemSub {
+  font-size: 12.5px;
+  line-height: 1.3;
+  color: var(--text-muted);
+}
+.trail {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: none;
+}
+
+/* ── popular destinations ─────────────────────────────────────────────── */
+.dests {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scrollbar-width: thin;
+}
+@media (min-width: 900px) {
+  .dests {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+.dest {
+  flex: none;
+  width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-soft);
+  text-align: center;
+  transition: background 0.15s ease;
+}
+.dest:hover {
+  background: var(--surface-alt);
+}
+.flag {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* ── Guidance (journey screen) ────────────────────────────────────────── */
+.gStep {
+  border-radius: 24px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+.gStep summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.gStep summary::-webkit-details-marker {
+  display: none;
+}
+.gNum {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex: none;
+}
+.gChevron {
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+  flex: none;
+}
+.gStep[open] .gChevron {
+  transform: rotate(180deg);
+}
+.gBody {
+  padding: 0 16px 16px 59px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.points li {
+  display: flex;
+  gap: 8px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--text-soft);
+}
+.points li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex: none;
+  margin-top: 8px;
+}
+.timing {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+/* ── empty / error states (EmptyState) ────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 26px 18px;
+}
+.emptyIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  color: var(--icon-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.emptyTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+.emptyBody {
+  margin: 0;
+  max-width: 460px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 28px;
+}
+
+/* ── chips (ChoiceChip) ───────────────────────────────────────────────── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.chip:hover {
+  border-color: var(--text-faint);
+}
+.chipOn,
+.chipOn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.pillNeed {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* ── profile completion ───────────────────────────────────────────────── */
+.progressCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.progressCard .bar {
+  height: 8px;
+}
+.progressPct {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── forms ────────────────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.locked {
+  height: 54px;
+  border-radius: 18px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-soft);
+  font-size: 15.5px;
+}
+.locked span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding-left: 14px;
+  gap: 4px;
+  transition: border-color 0.15s ease;
+}
+.search:focus-within {
+  border-color: var(--peach);
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 10px;
+  font-size: 15px;
+}
+.search input::placeholder {
+  color: var(--text-faint);
+}
+
+/* The main action of a screen, kept in reach at the bottom on a phone.
+   The page fades out behind it, so nothing reads through the button row. */
+.footer,
+.composer {
+  position: sticky;
+  bottom: 92px;
+  z-index: 5;
+  padding-top: 18px;
+  padding-bottom: 6px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  -webkit-mask-image: linear-gradient(to top, #000 calc(100% - 18px), transparent);
+  mask-image: linear-gradient(to top, #000 calc(100% - 18px), transparent);
+}
+@media (min-width: 900px) {
+  .footer,
+  .composer {
+    bottom: 0;
+    padding-bottom: 16px;
+  }
+}
+
+/* ── result cards (courses, scholarships, documents, applications) ────── */
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.facts {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-soft);
+}
+.score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.reasons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.reasons li {
+  display: flex;
+  gap: 8px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text-soft);
+}
+.reasons li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex: none;
+  margin-top: 7px;
+}
+.srcRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.srcLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.srcVerified {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.srcLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.srcLink:hover {
+  text-decoration: underline;
+}
+.srcNote {
+  display: flex;
+  gap: 6px;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+.srcNote :global(.icon) {
+  color: var(--warning);
+  flex: none;
+}
+
+/* ── the wait while a finder searches (NextedMatchingWait) ────────────── */
+.wait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 18px;
+}
+.waitLine {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  animation: fadeIn 0.35s ease;
+}
+.indeterminate {
+  width: 120px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+  position: relative;
+}
+.indeterminate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  border-radius: 999px;
+  background: var(--peach);
+  animation: slide 1.2s ease-in-out infinite;
+}
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(260%);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+.float {
+  animation: float 3.2s ease-in-out infinite;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ── the application tracker ──────────────────────────────────────────── */
+.track {
+  display: flex;
+  flex-direction: column;
+}
+.tStep {
+  display: flex;
+  gap: 12px;
+}
+.tRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+  width: 14px;
+}
+.tDot {
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-primary);
+  flex: none;
+}
+.tDotDone {
+  background: var(--primary);
+  opacity: 0.55;
+}
+.tDotNow {
+  background: var(--primary);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.tLine {
+  flex: 1;
+  width: 2px;
+  margin: 2px 0;
+  background: var(--border);
+}
+.tLineDone {
+  background: var(--primary);
+  opacity: 0.35;
+}
+.tBody {
+  flex: 1;
+  padding-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tLabel {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.tLabelOn {
+  color: var(--text);
+}
+.tLabelNow {
+  font-weight: 600;
+}
+
+/* ── AI counsellor chat ───────────────────────────────────────────────── */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bubble {
+  max-width: min(82%, 640px);
+  padding: 12px 15px 13px;
+  border-radius: 20px 20px 20px 6px;
+  /* The AI counsellor's replies (peach → blue blend in Day); the student's own (.mine) stay peach. */
+  background: var(--reply);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  font-size: 13.5px;
+  line-height: 1.45;
+  align-self: flex-start;
+  overflow-wrap: anywhere;
+}
+.mine {
+  align-self: flex-end;
+  max-width: min(75%, 560px);
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
+  color: var(--text);
+  border-radius: 20px 20px 6px 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.failed {
+  background: var(--accent-soft);
+}
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  margin-top: 4px;
+  border-radius: 2px;
+  background: var(--primary);
+  animation: blink 1.04s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.side {
+  align-self: flex-start;
+  max-width: min(82%, 640px);
+  width: 100%;
+}
+.starter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  font-size: 13.5px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+.starter:hover {
+  background: var(--surface);
+}
+.starter :global(.icon) {
+  color: var(--text-muted);
+}
+.composer {
+  display: flex;
+  gap: 10px;
+}
+.composer textarea {
+  flex: 1;
+  min-width: 0;
+  min-height: 56px;
+  max-height: 160px;
+  resize: none;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: 0;
+}
+.composer textarea:focus {
+  border-color: var(--peach);
+}
+.send {
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  border: 0;
+  background: var(--primary);
+  color: var(--on-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
+}
+.send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── the AI's formatted answer (NextedAnswer) ─────────────────────────── */
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.answer p {
+  margin: 0;
+}
+.aH1 {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.aH2 {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.aH3 {
+  margin: 0;
+  font-size: 13.8px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.aLi {
+  display: flex;
+  gap: 8px;
+  line-height: 1.45;
+}
+.aDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+  flex: none;
+  margin-top: 9px;
+}
+.aNum {
+  width: 16px;
+  flex: none;
+  font-weight: 600;
+}
+
+/* ── sheets (showAppSheet) ────────────────────────────────────────────── */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+.option:hover {
+  background: var(--surface-alt);
+}
+.dialogRow {
+  display: flex;
+  gap: 10px;
+}
+.dialogRow > * {
+  flex: 1;
+}
+.outline {
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.outline:hover {
+  background: var(--surface-alt);
+}
+
+/* ── settings rows (Profile) ──────────────────────────────────────────── */
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.setting {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  width: 100%;
+  text-align: left;
+  font-size: 15.5px;
+  cursor: pointer;
+}
+button.setting:hover,
+a.setting:hover {
+  background: var(--surface);
+}
+.setting > :global(.icon) {
+  color: var(--text-muted);
+  flex: none;
+}
+.danger,
+.danger > :global(.icon) {
+  color: var(--danger);
+}
+.seg {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--raised);
+  border: 1px solid var(--border);
+}
+.segBtn {
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.segOn {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 500;
+}
+
+/* ── loading screen (app/app/loading.tsx) ─────────────────────────────── */
+.loadingScreen {
+  min-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  /* Only shows if loading takes a moment: a quick screen never flashes it. */
+  animation: appear 0.2s ease 0.15s both;
+}
+.loadingText {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ── AI services hub (/app/ai) ────────────────────────────────────────── */
+.aiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 760px) {
+  .aiGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.aiCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 24px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.aiCard:hover {
+  transform: translateY(-2px);
+  background: var(--surface);
+}
+.aiCard .itemTitle {
+  font-size: 16.5px;
+}
+.aiGo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+/* ── compact profile grid ─────────────────────────────────────────────── */
+.pGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px 20px;
+}
+@media (min-width: 640px) {
+  .pGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pWide {
+  grid-column: 1 / -1;
+}
+.pField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.pLabel {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.pInput {
+  height: 50px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0 13px;
+  font-size: 14.5px;
+  outline: 0;
+  width: 100%;
+  min-width: 0;
+  transition: border-color 0.15s ease;
+}
+.pInput:focus {
+  border-color: var(--peach);
+}
+.pInput::placeholder {
+  color: var(--text-faint);
+}
+.pLocked {
+  height: 50px;
+  border-radius: 14px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  color: var(--text-soft);
+  cursor: default;
+}
+.pLocked span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pValue {
+  min-height: 50px;
+  border-radius: 14px;
+  background: var(--surface-alt);
+  padding: 13px;
+  font-size: 14.5px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.pValueEmpty {
+  color: var(--text-faint);
+  font-style: italic;
+}
+.pHint {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chipSm {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+.settingsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.settingPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+a.settingPill:hover,
+button.settingPill:hover {
+  background: var(--surface);
+}
+.settingPill :global(.icon) {
+  color: var(--text-muted);
+}
+.onlyWide {
+  display: none !important;
+}
+@media (min-width: 900px) {
+  .onlyWide {
+    display: flex !important;
+  }
+  .onlyNarrow {
+    display: none !important;
+  }
+}
+
+/* ── Home, like the app: one column, a step's rows in one card ────────── */
+.homeCol {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stepCard {
+  border-radius: 24px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+:global([data-theme='night']) .stepCard {
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.32);
+}
+.stepCard .item {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.stepCard .item + .item {
+  border-top: 1px solid var(--divider);
+}
+.stepCard .item:hover {
+  transform: none;
+  background: var(--surface-alt);
+}
+
+/* Popular destinations: one line, moving first → last, round and round. */
+.marquee {
+  overflow: hidden;
+  margin: 0 -4px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 70s linear infinite;
+}
+.marquee:hover .marqueeTrack,
+.marquee:focus-within .marqueeTrack {
+  animation-play-state: paused;
+}
+.marqueeSet .dest {
+  width: auto;
+  min-width: 84px;
+  padding: 10px 8px;
+  white-space: nowrap;
+}
+.marqueeSet {
+  display: flex;
+  gap: 8px;
+  padding-right: 8px;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
+}
+
+/* The whole conversation in one thin-bordered panel. */
+.chatBox {
+  padding: 16px;
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  background: var(--glass-fill);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  min-height: 240px;
+}
+@media (max-width: 600px) {
+  .chatBox {
+    padding: 10px;
+    border-radius: 22px;
+  }
+}
+
+/* IELTS AI on the page title row (laptops only; phones have the top row). */
+.headerPill {
+  display: none;
+  flex: none;
+}
+@media (min-width: 900px) {
+  .headerPill {
+    display: inline-flex;
+  }
+}
+
+.saveRow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+.saveRow .muted {
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .saveRow {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+  .saveRow > :first-child {
+    width: 320px;
+    flex: none;
+  }
+}

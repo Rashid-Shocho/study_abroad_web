@@ -1,0 +1,272 @@
+.layout {
+  min-height: 100dvh;
+  display: flex;
+}
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 20px var(--gutter) 120px;
+}
+.inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Phone: the app's floating frosted pill at the bottom. */
+.bar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(21, 24, 39, 0.12);
+}
+.tab {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: background 0.26s ease, color 0.26s ease, transform 0.26s ease;
+}
+.tab:hover {
+  color: var(--text);
+}
+.active {
+  background: var(--primary);
+  color: var(--on-primary);
+  transform: scale(1.04);
+}
+.active:hover {
+  color: var(--on-primary);
+}
+.tabLabel {
+  display: none;
+}
+.side {
+  display: none;
+}
+
+/* Laptop: the same tabs as a sidebar, with names. */
+@media (min-width: 900px) {
+  .main {
+    padding: 28px 32px 48px;
+  }
+  .bar {
+    display: none;
+  }
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    width: 240px;
+    flex: none;
+    padding: 24px 16px;
+    border-right: 1px solid var(--divider);
+    background: var(--glass-fill);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  .sideBrand {
+    padding: 0 8px 20px;
+  }
+  .sideTab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .sideTab:hover {
+    color: var(--text);
+    background: var(--surface-alt);
+  }
+  .sideActive,
+  .sideActive:hover {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+
+  /* "Upgrade plan": where Profile was, with a peach badge. */
+  .upgradeTab:not(.sideActive) {
+    color: var(--text);
+  }
+  .upgradeIcon {
+    width: 28px;
+    height: 28px;
+    margin-left: -3px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    background: var(--peach-gradient);
+    color: var(--on-peach);
+  }
+
+  /* Profile card at the bottom: name â†’ Profile, and log out. */
+  .foot {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--divider);
+  }
+  .me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+  }
+  .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--peach-gradient);
+    color: var(--on-peach);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .meText {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .meName,
+  .meSub {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .meName {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .meSub {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .meOut {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 0;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--danger-soft);
+    color: var(--danger);
+    cursor: pointer;
+    transition: filter 0.2s ease;
+  }
+  .meOut:hover {
+    filter: brightness(0.96);
+  }
+  .meOut:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+/* The row at the top of every page: logo (phones) and the IELTS AI pill. */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: -4px;
+}
+@media (min-width: 900px) {
+  .topRow {
+    display: none;
+  }
+}
+
+/* "AI services" and the three features under it (sidebar). */
+@media (min-width: 900px) {
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 0;
+    margin: 2px 0;
+    border-radius: 24px;
+  }
+  .groupHead {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .groupHead:hover {
+    color: var(--text);
+    background: var(--surface-alt);
+  }
+  .groupOn {
+    color: var(--text);
+  }
+  .subTab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    margin-left: 24px;
+    padding: 0 10px 0 14px;
+    white-space: nowrap;
+    border-left: 2px solid var(--divider);
+    border-radius: 0 999px 999px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .subTab:hover {
+    color: var(--text);
+    background: var(--surface-alt);
+  }
+  .subActive,
+  .subActive:hover {
+    color: var(--text);
+    background: var(--accent-soft);
+    border-left-color: var(--peach);
+    font-weight: 500;
+  }
+}

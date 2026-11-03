@@ -1,0 +1,365 @@
+/* The app's kit (lib/app/widgets/kit.dart) for the web. */
+
+.card {
+  display: block;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  min-width: 0;
+}
+.cardLink {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.cardLink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(21, 24, 39, 0.08);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--hero-gradient);
+  color: var(--hero-text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-hero);
+  padding: 22px;
+  box-shadow: var(--hero-shadow);
+  isolation: isolate;
+}
+/* Peach glow top-left, blue bottom-right (HeroGlow). */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::before {
+  top: -210px;
+  left: -170px;
+  background: radial-gradient(circle, rgba(255, 156, 130, 0.28), transparent 70%);
+}
+.hero::after {
+  bottom: -210px;
+  right: -170px;
+  background: radial-gradient(circle, rgba(91, 124, 240, 0.28), transparent 70%);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--peach-gradient);
+  color: var(--on-peach);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+.primary:hover {
+  filter: brightness(1.03);
+}
+.primary:disabled,
+.primary[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: default;
+}
+.block {
+  width: 100%;
+}
+.dark {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 500;
+}
+
+.soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.soft:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.iconCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  color: var(--icon-accent);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: var(--surface-alt);
+  color: var(--text-soft);
+}
+.tagPrimary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+.tagPeach {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fieldLabel {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.inputWrap {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.inputWrap:focus-within {
+  border-color: var(--peach);
+}
+.prefix {
+  padding: 0 4px 0 16px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 16px;
+  font-size: 15.5px;
+}
+.input::placeholder {
+  color: var(--text-faint);
+}
+.eye {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0 14px;
+  height: 100%;
+  cursor: pointer;
+}
+.fieldError {
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.notice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--accent-soft);
+  border-radius: 22px;
+  padding: 14px 16px;
+}
+.noticeTitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+.noticeBody {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  line-height: 1;
+  color: var(--brand-ink);
+}
+/* "STUDY ABROAD" under the logo, like "IELTS AI" on the IELTS AI website. */
+.brandProduct {
+  display: block;
+  /* spaced out so the line runs under "nextED" (the dot sticks out past it) */
+  letter-spacing: 0.42em;
+  margin-right: -0.42em;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--brand-ink);
+}
+.brandProduct b {
+  font-weight: 700;
+  background: var(--brand-dot);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brandMark {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* The nextED logo: blue in Day, white in Night. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.logoNight {
+  display: none !important;
+}
+:global(:root[data-theme='night']) .logoDay {
+  display: none !important;
+}
+:global(:root[data-theme='night']) .logoNight {
+  display: block !important;
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme])) .logoDay {
+    display: none !important;
+  }
+  :global(:root:not([data-theme])) .logoNight {
+    display: block !important;
+  }
+}
+
+/* "IELTS AI" pill, at the top of every page. */
+.ieltsPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px 0 14px;
+  border-radius: 999px;
+  background: var(--peach-gradient);
+  color: var(--on-peach);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(255, 156, 130, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease;
+  flex: none;
+}
+.ieltsPill:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+/* A plain text field (the profile, the finders' search). */
+.textInput {
+  height: 54px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0 16px;
+  font-size: 15.5px;
+  outline: 0;
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+.textInput:focus {
+  border-color: var(--peach);
+}
+.textInput::placeholder {
+  color: var(--text-faint);
+}
+
+/* Toast (the app's snackbar). */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(21, 24, 39, 0.22);
+}
+.toast a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (min-width: 900px) {
+  .toast {
+    bottom: 28px;
+  }
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--track);
+  border-top-color: var(--text);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
